@@ -1,5 +1,7 @@
+import { Fragment } from "react";
 import MeetupList from "@/components/meetups/MeetupList";
 import { MongoClient } from "mongodb";
+import Head from "next/head";
 
 // const DUMMY_MEETUPS = [
 //   {
@@ -28,7 +30,18 @@ import { MongoClient } from "mongodb";
 //   },
 // ];
 const HomePage = (props) => {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="browse a huge list of highly active react meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />;
+    </Fragment>
+  );
 };
 
 // export async function getServerSideProps(context) {
